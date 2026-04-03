@@ -24,852 +24,283 @@
             --green: #10b981;
         }
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--navy);
-            color: var(--text);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--navy); color: var(--text); font-family: 'Outfit', sans-serif; overflow-x: hidden; }
 
         /* ── NAV ── */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-            height: 68px;
-            background: rgba(11, 22, 40, 0.92);
-            backdrop-filter: blur(12px);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px; height: 68px;
+            background: rgba(11, 22, 40, 0.92); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
-
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: -0.3px;
-        }
-
-        .nav-logo span {
-            color: var(--accent-bright);
-        }
-
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
+        .nav-logo span { color: var(--accent-bright); }
         .nav-cta {
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 10px 22px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            letter-spacing: 0.3px;
-            transition: background 0.2s, transform 0.15s;
+            background: var(--accent); color: #fff; border: none; border-radius: 6px;
+            padding: 10px 22px; font-family: 'Outfit', sans-serif; font-weight: 600;
+            font-size: 13px; cursor: pointer; letter-spacing: 0.3px; transition: background 0.2s, transform 0.15s;
         }
-
-        .nav-cta:hover {
-            background: var(--accent-bright);
-            transform: translateY(-1px);
-        }
+        .nav-cta:hover { background: var(--accent-bright); transform: translateY(-1px); }
 
         /* ── HERO ── */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 40px 80px;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 120px 40px 80px; position: relative; overflow: hidden;
         }
-
-        /* Grid overlay */
         .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+            background-size: 60px 60px; pointer-events: none;
         }
-
-        /* Glow */
         .hero::after {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
-            pointer-events: none;
+            content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%); pointer-events: none;
         }
-
         .hero-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            max-width: 1100px; margin: 0 auto; display: grid;
+            grid-template-columns: 1fr 420px; gap: 80px; align-items: center; position: relative; z-index: 1;
         }
-
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(37, 99, 235, 0.15);
-            border: 1px solid rgba(37, 99, 235, 0.4);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--accent-bright);
-            letter-spacing: 0.5px;
-            margin-bottom: 24px;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.4);
+            border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 600;
+            color: var(--accent-bright); letter-spacing: 0.5px; margin-bottom: 24px;
             animation: fadeUp 0.6s ease both;
         }
+        .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
 
-        .hero-badge-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--green);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.5;
-                transform: scale(0.8);
-            }
-        }
+        @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.8); } }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(42px, 5vw, 64px);
-            font-weight: 900;
-            line-height: 1.1;
-            color: var(--white);
-            margin-bottom: 24px;
+            font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 64px);
+            font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 24px;
             animation: fadeUp 0.6s 0.1s ease both;
         }
-
-        .hero h1 em {
-            font-style: normal;
-            color: var(--accent-bright);
-        }
-
+        .hero h1 em { font-style: normal; color: var(--accent-bright); }
         .hero-sub {
-            font-size: 17px;
-            line-height: 1.7;
-            color: var(--text-dim);
-            max-width: 520px;
-            margin-bottom: 40px;
-            font-weight: 400;
-            animation: fadeUp 0.6s 0.2s ease both;
+            font-size: 17px; line-height: 1.7; color: var(--text-dim); max-width: 520px;
+            margin-bottom: 40px; font-weight: 400; animation: fadeUp 0.6s 0.2s ease both;
         }
+        .hero-sub b { color: var(--text); font-weight: 600; }
+        .hero-stats { display: flex; gap: 40px; animation: fadeUp 0.6s 0.3s ease both; }
+        .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--white); }
+        .hero-stat-num span { color: var(--gold); }
+        .hero-stat-label { font-size: 12px; color: var(--text-dim); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
-        .hero-sub b {
-            color: var(--text);
-            font-weight: 600;
+        /* ── APPLY CARD (no price upfront) ── */
+        .apply-card {
+            background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px;
+            padding: 36px 32px; box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+            animation: fadeUp 0.6s 0.2s ease both; position: relative;
         }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            animation: fadeUp 0.6s 0.3s ease both;
-        }
-
-        .hero-stat-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .hero-stat-num span {
-            color: var(--gold);
-        }
-
-        .hero-stat-label {
-            font-size: 12px;
-            color: var(--text-dim);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
-
-        /* ── PAYMENT CARD ── */
-        .pay-card {
-            background: var(--navy-mid);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 36px 32px;
-            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
-            animation: fadeUp 0.6s 0.2s ease both;
-            position: relative;
-        }
-
-        .pay-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
+        .apply-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, var(--accent), var(--accent-bright), var(--gold));
             border-radius: 16px 16px 0 0;
         }
+        .apply-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+        .apply-card-sub { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; line-height: 1.5; }
 
-        .pay-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 6px;
-        }
-
-        .pay-card-sub {
-            font-size: 13px;
-            color: var(--text-dim);
-            margin-bottom: 28px;
-            line-height: 1.5;
-        }
-
-        .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-            margin-bottom: 24px;
-        }
-
-        .price-currency {
-            font-size: 18px;
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .price-amount {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            font-weight: 900;
-            color: var(--white);
-            line-height: 1;
-        }
-
-        .price-period {
-            font-size: 13px;
-            color: var(--text-dim);
-        }
-
-        .perks {
-            margin-bottom: 28px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .perk {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: var(--text);
-        }
-
+        .perks { margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
+        .perk { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text); }
         .perk-icon {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: rgba(16, 185, 129, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            flex-shrink: 0;
+            width: 22px; height: 22px; border-radius: 50%; background: rgba(16,185,129,0.15);
+            display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0;
         }
 
-        /* Wizard steps */
-        .wizard-step {
-            animation: fadeUp 0.25s ease both;
+        /* ── FORM FIELDS ── */
+        .input-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; display: block; }
+        input[type="text"], input[type="tel"], select {
+            width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+            border-radius: 8px; padding: 13px 14px; color: var(--white);
+            font-family: 'Outfit', sans-serif; font-size: 15px; margin-bottom: 14px;
+            transition: border-color 0.2s; outline: none; appearance: none;
         }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(14px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .step-label {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent-bright);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .step-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .mpesa-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--gold);
-            border-radius: 10px;
-            padding: 18px;
-            text-align: center;
-            cursor: pointer;
-            margin-bottom: 16px;
-            transition: box-shadow 0.2s, transform 0.15s;
-        }
-
-        .mpesa-box:hover {
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
-            transform: translateY(-1px);
-        }
-
-        .mpesa-box-label {
-            font-size: 9px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .mpesa-box-number {
-            font-family: 'Outfit', monospace;
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 3px;
-        }
-
-        .mpesa-box-hint {
-            font-size: 9px;
-            color: rgba(245, 158, 11, 0.6);
-            margin-top: 6px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .info-pill {
-            background: rgba(37, 99, 235, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.25);
-            border-radius: 8px;
-            padding: 12px 14px;
-            font-size: 11px;
-            color: var(--text-dim);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .info-pill b {
-            color: var(--text);
-        }
+        select option { background: var(--navy-mid); }
+        input:focus, select:focus { border-color: var(--accent); }
 
         .btn {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
+            width: 100%; padding: 15px; border: none; border-radius: 8px;
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 13px;
+            letter-spacing: 0.5px; cursor: pointer; transition: all 0.2s; text-transform: uppercase;
         }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-bright); }
+        .btn-green { background: var(--green); color: #fff; }
+        .btn-green:hover { filter: brightness(1.1); }
+        .btn-ghost { background: rgba(255,255,255,0.06); color: var(--text); }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+        .btn-row { display: flex; gap: 10px; }
 
-        .btn:active {
-            transform: scale(0.98);
+        /* Wizard steps */
+        .wizard-step { animation: fadeUp 0.25s ease both; }
+        .step-label {
+            font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--accent-bright); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
         }
+        .step-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
+        /* Terms checkbox */
+        .terms-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 18px; }
+        .terms-row input[type="checkbox"] { width: 16px; height: 16px; margin-top: 3px; flex-shrink: 0; accent-color: var(--accent); }
+        .terms-row label { font-size: 12px; color: var(--text-dim); line-height: 1.6; cursor: pointer; }
+        .terms-row label a { color: var(--accent-bright); text-decoration: underline; cursor: pointer; }
 
-        .btn-primary:hover {
-            background: var(--accent-bright);
+        /* Payment reveal */
+        .info-pill {
+            background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.25);
+            border-radius: 8px; padding: 12px 14px; font-size: 11px; color: var(--text-dim);
+            line-height: 1.7; margin-bottom: 16px;
         }
+        .info-pill b { color: var(--text); }
+        .mpesa-box {
+            background: rgba(0,0,0,0.3); border: 2px solid var(--gold); border-radius: 10px;
+            padding: 18px; text-align: center; cursor: pointer; margin-bottom: 16px;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+        .mpesa-box:hover { box-shadow: 0 0 20px rgba(245,158,11,0.25); transform: translateY(-1px); }
+        .mpesa-box-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .mpesa-box-number { font-family: 'Outfit', monospace; font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: 3px; }
+        .mpesa-box-hint { font-size: 9px; color: rgba(245,158,11,0.6); margin-top: 6px; font-weight: 600; letter-spacing: 0.5px; }
 
-        .btn-green {
-            background: var(--green);
-            color: #fff;
+        /* Fee notice — small, not leading */
+        .fee-notice {
+            text-align: center; font-size: 11px; color: var(--text-dim);
+            margin-top: 14px; line-height: 1.6;
         }
+        .fee-notice b { color: var(--gold); }
 
-        .btn-green:hover {
-            filter: brightness(1.1);
-        }
-
-        .btn-ghost {
-            background: rgba(255, 255, 255, 0.06);
-            color: var(--text);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        input[type="number"],
-        input[type="text"] {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 13px 14px;
-            color: var(--white);
-            font-family: 'Outfit', sans-serif;
-            font-size: 15px;
-            margin-bottom: 14px;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: var(--accent);
-        }
-
-        .input-label {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            margin-bottom: 6px;
-            display: block;
-        }
+        /* Progress dots */
+        .progress-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
+        .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); transition: background 0.3s; }
+        .dot.active { background: var(--accent-bright); }
 
         /* ── HOW IT WORKS ── */
-        .section {
-            padding: 100px 40px;
-        }
+        .section { padding: 100px 40px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 14px; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+        .section-sub { font-size: 16px; color: var(--text-dim); max-width: 560px; line-height: 1.7; margin-bottom: 64px; }
 
-        .section-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-tag {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent-bright);
-            margin-bottom: 14px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: 900;
-            color: var(--white);
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        .section-sub {
-            font-size: 16px;
-            color: var(--text-dim);
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 64px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .step-card {
-            background: var(--navy-mid);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 32px 28px;
-            position: relative;
-            transition: border-color 0.2s, transform 0.2s;
+            background: var(--navy-mid); border: 1px solid var(--border); border-radius: 14px;
+            padding: 32px 28px; position: relative; transition: border-color 0.2s, transform 0.2s;
         }
-
-        .step-card:hover {
-            border-color: rgba(37, 99, 235, 0.4);
-            transform: translateY(-4px);
-        }
-
-        .step-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            font-weight: 900;
-            color: rgba(37, 99, 235, 0.15);
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .step-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-
-        .step-card p {
-            font-size: 14px;
-            color: var(--text-dim);
-            line-height: 1.7;
-        }
-
-        .step-card .step-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(37, 99, 235, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            margin-bottom: 16px;
-        }
+        .step-card:hover { border-color: rgba(37,99,235,0.4); transform: translateY(-4px); }
+        .step-num { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: rgba(37,99,235,0.15); line-height: 1; margin-bottom: 20px; }
+        .step-card h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+        .step-card p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+        .step-card .step-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(37,99,235,0.15); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
 
         /* ── EARNINGS ── */
-        .earnings-section {
-            background: var(--navy-mid);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .earnings-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .earnings-visual {
-            background: var(--navy);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-        }
-
-        .earnings-bar-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .bar-row {
-            margin-bottom: 18px;
-        }
-
-        .bar-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-        }
-
-        .bar-name {
-            font-size: 13px;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .bar-val {
-            font-size: 13px;
-            color: var(--gold);
-            font-weight: 700;
-        }
-
-        .bar-track {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 100px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            border-radius: 100px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-bright));
-            animation: growBar 1.2s ease both;
-        }
-
-        @keyframes growBar {
-            from {
-                width: 0 !important;
-            }
-        }
+        .earnings-section { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .earnings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .earnings-visual { background: var(--navy); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+        .earnings-bar-label { font-size: 11px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .bar-row { margin-bottom: 18px; }
+        .bar-info { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .bar-name { font-size: 13px; color: var(--text); font-weight: 500; }
+        .bar-val { font-size: 13px; color: var(--gold); font-weight: 700; }
+        .bar-track { height: 8px; background: rgba(255,255,255,0.05); border-radius: 100px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); animation: growBar 1.2s ease both; }
+        @keyframes growBar { from { width: 0 !important; } }
 
         /* ── TRUST ── */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 48px;
-        }
-
-        .trust-card {
-            background: var(--navy-mid);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px 24px;
-            text-align: center;
-        }
-
-        .trust-icon {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-
-        .trust-card h4 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 8px;
-        }
-
-        .trust-card p {
-            font-size: 13px;
-            color: var(--text-dim);
-            line-height: 1.6;
-        }
+        .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+        .trust-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; text-align: center; }
+        .trust-icon { font-size: 28px; margin-bottom: 12px; }
+        .trust-card h4 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+        .trust-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 
         /* ── FAQ ── */
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            max-width: 720px;
-        }
-
-        .faq-item {
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 8px;
-        }
-
+        .faq-list { display: flex; flex-direction: column; gap: 2px; max-width: 720px; }
+        .faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
         .faq-q {
-            width: 100%;
-            background: var(--navy-mid);
-            border: none;
-            color: var(--white);
-            padding: 18px 22px;
-            text-align: left;
-            font-family: 'Outfit', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s;
+            width: 100%; background: var(--navy-mid); border: none; color: var(--white);
+            padding: 18px 22px; text-align: left; font-family: 'Outfit', sans-serif; font-size: 15px;
+            font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s;
         }
+        .faq-q:hover { background: var(--navy-light); }
+        .faq-q .arrow { transition: transform 0.25s; color: var(--accent-bright); font-size: 18px; }
+        .faq-q.open .arrow { transform: rotate(45deg); }
+        .faq-a { display: none; background: rgba(0,0,0,0.2); padding: 0 22px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+        .faq-a.open { display: block; padding: 16px 22px; }
 
-        .faq-q:hover {
-            background: var(--navy-light);
+        /* ── TERMS MODAL ── */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.8);
+            display: none; align-items: center; justify-content: center; padding: 20px;
         }
-
-        .faq-q .arrow {
-            transition: transform 0.25s;
-            color: var(--accent-bright);
-            font-size: 18px;
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--navy-mid); border: 1px solid var(--border); border-radius: 16px;
+            max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto;
+            padding: 40px; position: relative;
         }
-
-        .faq-q.open .arrow {
-            transform: rotate(45deg);
+        .modal h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--white); margin-bottom: 6px; }
+        .modal-date { font-size: 12px; color: var(--text-dim); margin-bottom: 28px; }
+        .modal h3 { font-size: 14px; font-weight: 700; color: var(--accent-bright); text-transform: uppercase; letter-spacing: 1px; margin: 24px 0 10px; }
+        .modal p, .modal li { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
+        .modal ul { padding-left: 20px; margin-top: 8px; }
+        .modal li { margin-bottom: 6px; }
+        .modal-close {
+            position: sticky; bottom: 0; left: 0; right: 0; background: var(--navy-mid);
+            padding-top: 20px; margin-top: 24px;
         }
-
-        .faq-a {
-            display: none;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0 22px;
-            font-size: 14px;
-            color: var(--text-dim);
-            line-height: 1.7;
+        .modal-close-btn {
+            width: 100%; padding: 13px; border: none; border-radius: 8px;
+            background: var(--accent); color: #fff; font-family: 'Outfit', sans-serif;
+            font-weight: 700; font-size: 13px; cursor: pointer; transition: background 0.2s;
         }
-
-        .faq-a.open {
-            display: block;
-            padding: 16px 22px;
+        .modal-close-btn:hover { background: var(--accent-bright); }
+        .modal-x {
+            position: absolute; top: 16px; right: 20px; background: none; border: none;
+            color: var(--text-dim); font-size: 22px; cursor: pointer; line-height: 1;
         }
+        .modal-x:hover { color: var(--white); }
 
         /* ── FOOTER CTA ── */
-        .footer-cta {
-            text-align: center;
-            padding: 100px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-        }
-
-        .footer-cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 5vw, 56px);
-            font-weight: 900;
-            color: var(--white);
-            margin-bottom: 16px;
-            position: relative;
-        }
-
-        .footer-cta p {
-            font-size: 16px;
-            color: var(--text-dim);
-            margin-bottom: 36px;
-            position: relative;
-        }
-
-        .footer-cta .btn-primary {
-            display: inline-block;
-            width: auto;
-            padding: 16px 48px;
-            font-size: 14px;
-            position: relative;
-        }
+        .footer-cta { text-align: center; padding: 100px 40px; position: relative; overflow: hidden; }
+        .footer-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(37,99,235,0.15) 0%, transparent 70%); }
+        .footer-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 900; color: var(--white); margin-bottom: 16px; position: relative; }
+        .footer-cta p { font-size: 16px; color: var(--text-dim); margin-bottom: 36px; position: relative; }
+        .footer-cta .btn-primary { display: inline-block; width: auto; padding: 16px 48px; font-size: 14px; position: relative; }
 
         footer {
-            background: var(--navy-mid);
-            border-top: 1px solid var(--border);
-            padding: 28px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: var(--text-dim);
+            background: var(--navy-mid); border-top: 1px solid var(--border);
+            padding: 28px 40px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 12px; color: var(--text-dim);
         }
-
-        footer a {
-            color: var(--text-dim);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--text);
-        }
+        footer a { color: var(--text-dim); text-decoration: none; }
+        footer a:hover { color: var(--text); }
 
         /* ── TOAST ── */
         .toast {
-            position: fixed;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--green);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-            z-index: 9999;
-            display: none;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            white-space: nowrap;
+            position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+            background: var(--green); color: #fff; padding: 12px 24px; border-radius: 6px;
+            font-weight: 700; font-size: 12px; letter-spacing: 0.5px; z-index: 9999;
+            display: none; box-shadow: 0 10px 40px rgba(0,0,0,0.5); white-space: nowrap;
         }
 
         /* ── MOBILE ── */
         @media (max-width: 900px) {
-            nav {
-                padding: 0 20px;
-            }
-
-            .hero {
-                padding: 100px 20px 60px;
-            }
-
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .pay-card {
-                order: -1;
-            }
-
-            .hero-stats {
-                gap: 24px;
-                flex-wrap: wrap;
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .earnings-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .trust-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 60px 20px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
+            nav { padding: 0 20px; }
+            .hero { padding: 100px 20px 60px; }
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+            .apply-card { order: -1; }
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .earnings-grid { grid-template-columns: 1fr; gap: 40px; }
+            .trust-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 20px; }
+            footer { flex-direction: column; gap: 10px; text-align: center; }
+            .modal { padding: 28px 20px; }
         }
     </style>
 </head>
@@ -878,7 +309,7 @@
 
     <nav>
         <div class="nav-logo">AI Jobs <span>Kenya</span></div>
-        <button class="nav-cta" onclick="scrollToPay()">Apply Now — KES 500</button>
+        <button class="nav-cta" onclick="scrollToPay()">Apply Now — Free to Register</button>
     </nav>
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
@@ -900,8 +331,8 @@
                         <div class="hero-stat-label">Monthly Earnings Possible</div>
                     </div>
                     <div>
-                        <div class="hero-stat-num">500<span> KES</span></div>
-                        <div class="hero-stat-label">One-Time Onboarding Fee</div>
+                        <div class="hero-stat-num">3<span> min</span></div>
+                        <div class="hero-stat-label">To Register</div>
                     </div>
                     <div>
                         <div class="hero-stat-num">24<span>hr</span></div>
@@ -910,41 +341,96 @@
                 </div>
             </div>
 
-            <!-- PAYMENT CARD -->
-            <div class="pay-card" id="pay-section">
-                <div class="pay-card-title">Get Started Today</div>
-                <div class="pay-card-sub">One-time onboarding fee. Pay once, get connected forever.</div>
-
-                <div class="price-row">
-                    <span class="price-currency">KES</span>
-                    <span class="price-amount">500</span>
-                    <span class="price-period">/ one-time</span>
-                </div>
+            <!-- APPLY CARD — Step 1 is just a signup form, no payment mention -->
+            <div class="apply-card" id="pay-section">
+                <div class="apply-card-title">Apply in 3 Minutes</div>
+                <div class="apply-card-sub">Tell us a bit about yourself to get started. Free to apply.</div>
 
                 <div class="perks">
-                    <div class="perk">
-                        <div class="perk-icon">✓</div> Direct connection to Meta AI contractor
-                    </div>
-                    <div class="perk">
-                        <div class="perk-icon">✓</div> Access to Llama model training tasks
-                    </div>
-                    <div class="perk">
-                        <div class="perk-icon">✓</div> Earn KES 50,000 – 100,000/month
-                    </div>
-                    <div class="perk">
-                        <div class="perk-icon">✓</div> 100% remote — work from your phone
-                    </div>
-                    <div class="perk">
-                        <div class="perk-icon">✓</div> Connected within 24 hours of payment
+                    <div class="perk"><div class="perk-icon">✓</div> No qualifications required</div>
+                    <div class="perk"><div class="perk-icon">✓</div> Work from your phone, anywhere</div>
+                    <div class="perk"><div class="perk-icon">✓</div> Paid tasks — rate AI, label data, test models</div>
+                    <div class="perk"><div class="perk-icon">✓</div> Connected to contractor within 24 hours</div>
+                </div>
+
+                <!-- Progress dots -->
+                <div class="progress-dots" id="progress-dots">
+                    <div class="dot active" id="dot-1"></div>
+                    <div class="dot" id="dot-2"></div>
+                    <div class="dot" id="dot-3"></div>
+                    <div class="dot" id="dot-4"></div>
+                </div>
+
+                <!-- STEP 1 — Basic info -->
+                <div id="step-1" class="wizard-step">
+                    <div class="step-label">Step 1 — Your Details</div>
+                    <label class="input-label">Full Name</label>
+                    <input type="text" id="full-name" placeholder="e.g. Jane Wanjiru" />
+                    <label class="input-label">WhatsApp Number</label>
+                    <input type="tel" id="wa-number" placeholder="e.g. 0712 345 678" />
+                    <label class="input-label">County</label>
+                    <select id="county">
+                        <option value="">Select your county...</option>
+                        <option>Nairobi</option><option>Mombasa</option><option>Kisumu</option>
+                        <option>Nakuru</option><option>Eldoret / Uasin Gishu</option><option>Thika / Kiambu</option>
+                        <option>Machakos</option><option>Nyeri</option><option>Meru</option>
+                        <option>Other</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="nextStep(2)">CONTINUE →</button>
+                </div>
+
+                <!-- STEP 2 — Availability -->
+                <div id="step-2" class="wizard-step" style="display:none;">
+                    <div class="step-label">Step 2 — Your Availability</div>
+                    <label class="input-label">Hours Available Per Day</label>
+                    <select id="hours">
+                        <option value="">Select hours...</option>
+                        <option>1 – 2 hours</option>
+                        <option>3 – 4 hours</option>
+                        <option>5 – 6 hours</option>
+                        <option>7 – 8 hours (full-time)</option>
+                    </select>
+                    <label class="input-label">Preferred Language</label>
+                    <select id="language">
+                        <option value="">Select language...</option>
+                        <option>English</option>
+                        <option>Swahili</option>
+                        <option>Both English & Swahili</option>
+                    </select>
+                    <div class="btn-row">
+                        <button class="btn btn-ghost" onclick="nextStep(1)" style="flex:1;">← Back</button>
+                        <button class="btn btn-primary" onclick="nextStep(3)" style="flex:2;">CONTINUE →</button>
                     </div>
                 </div>
 
-                <!-- STEP 1 -->
-                <div id="step-1" class="wizard-step">
-                    <div class="step-label">Step 1 — Pay via M-Pesa</div>
+                <!-- STEP 3 — Terms & then reveal payment -->
+                <div id="step-3" class="wizard-step" style="display:none;">
+                    <div class="step-label">Step 3 — Terms of Service</div>
+                    <p style="font-size:13px;color:var(--text-dim);margin-bottom:14px;line-height:1.7;">
+                        Before proceeding, please read and agree to our Terms & Conditions. These outline how you'll be connected, what the onboarding fee covers, and your rights as a contractor.
+                    </p>
+                    <div class="terms-row">
+                        <input type="checkbox" id="terms-check" />
+                        <label for="terms-check">
+                            I have read and agree to the <a onclick="openTerms()" href="#">AI Jobs Kenya Terms & Conditions</a>, including the onboarding fee policy and refund terms.
+                        </label>
+                    </div>
+                    <div class="terms-row">
+                        <input type="checkbox" id="age-check" />
+                        <label for="age-check">I confirm I am 18 years of age or older and legally eligible to work in Kenya.</label>
+                    </div>
+                    <div class="btn-row">
+                        <button class="btn btn-ghost" onclick="nextStep(2)" style="flex:1;">← Back</button>
+                        <button class="btn btn-primary" onclick="nextStep(4)" style="flex:2;">AGREE & CONTINUE →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 4 — Payment (revealed only after agreement) -->
+                <div id="step-4" class="wizard-step" style="display:none;">
+                    <div class="step-label">Step 4 — Onboarding Fee</div>
                     <div class="info-pill">
-                        ✔ Open <b>M-Pesa</b> → <b>Pochi la Biashara</b> → <b>Send Money</b><br>
-                        ✔ Send exactly <b>KES 500</b> to the number below<br>
+                        ✔ A <b>one-time registration fee of KES 500</b> is required to cover vetting and direct contractor introduction.<br>
+                        ✔ Send via <b>M-Pesa Pochi la Biashara</b> to the number below<br>
                         ✔ Save your <b>M-Pesa confirmation message</b>
                     </div>
                     <div class="mpesa-box" onclick="copyNumber()">
@@ -952,30 +438,13 @@
                         <div class="mpesa-box-number">0725 885 304</div>
                         <div class="mpesa-box-hint">TAP TO COPY NUMBER</div>
                     </div>
-                    <button class="btn btn-primary" onclick="nextStep(2)">I HAVE SENT KES 500 →</button>
-                </div>
-
-                <!-- STEP 2 -->
-                <div id="step-2" class="wizard-step" style="display:none;">
-                    <div class="step-label">Step 2 — Confirm Payment</div>
                     <label class="input-label">M-Pesa Transaction Code</label>
                     <input type="text" id="mpesa-code" placeholder="e.g. QHK3XR7W2P" />
-                    <label class="input-label">Your WhatsApp Number</label>
-                    <input type="text" id="wa-number" placeholder="e.g. 0712345678" />
                     <div class="btn-row">
-                        <button class="btn btn-ghost" onclick="nextStep(1)" style="flex:1;">← Back</button>
-                        <button class="btn btn-primary" onclick="nextStep(3)" style="flex:2;">CONTINUE →</button>
+                        <button class="btn btn-ghost" onclick="nextStep(3)" style="flex:1;">← Back</button>
+                        <button class="btn btn-green" onclick="sendWhatsApp()" style="flex:2;">SEND CONFIRMATION →</button>
                     </div>
-                </div>
-
-                <!-- STEP 3 -->
-                <div id="step-3" class="wizard-step" style="display:none;">
-                    <div class="step-label">Step 3 — Notify Us on WhatsApp</div>
-                    <p style="font-size:13px;color:var(--text-dim);margin-bottom:16px;line-height:1.6;">
-                        Tap below to send your confirmation to our team. We'll contact you within <b
-                            style="color:var(--text)">24 hours</b> with your job access details.
-                    </p>
-                    <button class="btn btn-green" onclick="sendWhatsApp()">SEND CONFIRMATION ON WHATSAPP →</button>
+                    <div class="fee-notice">This fee is <b>non-refundable</b> once contractor introduction is made. See <a href="#" onclick="openTerms()" style="color:var(--accent-bright);text-decoration:underline;">Terms & Conditions</a>.</div>
                 </div>
             </div>
         </div>
@@ -990,24 +459,21 @@
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-num">01</div>
-                    <div class="step-icon">💳</div>
-                    <h3>Pay KES 500 Onboarding</h3>
-                    <p>A one-time fee via M-Pesa Pochi la Biashara. This covers your registration and direct
-                        introduction to the Meta AI contractor network.</p>
+                    <div class="step-icon">📋</div>
+                    <h3>Register & Agree to Terms</h3>
+                    <p>Fill in your details, confirm your availability, and read our Terms & Conditions. Takes 3 minutes.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-num">02</div>
                     <div class="step-icon">🤝</div>
                     <h3>Get Connected in 24 Hours</h3>
-                    <p>We personally introduce you to the Meta-contracted coordinator. You receive your onboarding
-                        instructions and task platform access via WhatsApp.</p>
+                    <p>We personally introduce you to the Meta-contracted coordinator. You receive your onboarding instructions and task platform access via WhatsApp.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-num">03</div>
                     <div class="step-icon">💰</div>
                     <h3>Work & Earn Monthly</h3>
-                    <p>Complete AI training tasks — rating responses, labeling data, testing Llama models — from your
-                        phone. Payments made monthly, directly to you.</p>
+                    <p>Complete AI training tasks — rating responses, labeling data, testing Llama models — from your phone. Payments made monthly, directly to you.</p>
                 </div>
             </div>
         </div>
@@ -1020,19 +486,14 @@
                 <div>
                     <div class="section-tag">Earning Potential</div>
                     <h2 class="section-title">Real Money.<br>Real Work.</h2>
-                    <p class="section-sub" style="margin-bottom:32px;">AI training tasks pay well because they require
-                        human judgment. The more tasks you complete, the more you earn. Scale at your own pace.</p>
+                    <p class="section-sub" style="margin-bottom:32px;">AI training tasks pay well because they require human judgment. The more tasks you complete, the more you earn.</p>
                     <div class="trust-grid" style="margin-top:0; grid-template-columns: 1fr 1fr;">
                         <div class="trust-card" style="text-align:left; padding:20px;">
-                            <div
-                                style="font-size:22px;font-weight:900;font-family:'Playfair Display',serif;color:var(--gold);">
-                                KES 50K</div>
+                            <div style="font-size:22px;font-weight:900;font-family:'Playfair Display',serif;color:var(--gold);">KES 50K</div>
                             <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">Part-time monthly</div>
                         </div>
                         <div class="trust-card" style="text-align:left; padding:20px;">
-                            <div
-                                style="font-size:22px;font-weight:900;font-family:'Playfair Display',serif;color:var(--gold);">
-                                KES 100K+</div>
+                            <div style="font-size:22px;font-weight:900;font-family:'Playfair Display',serif;color:var(--gold);">KES 100K+</div>
                             <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">Full-time monthly</div>
                         </div>
                     </div>
@@ -1040,36 +501,22 @@
                 <div class="earnings-visual">
                     <div class="earnings-bar-label">Typical Monthly Earnings by Hours/Day</div>
                     <div class="bar-row">
-                        <div class="bar-info"><span class="bar-name">2 hrs/day</span><span class="bar-val">~KES
-                                30,000</span></div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width:30%"></div>
-                        </div>
+                        <div class="bar-info"><span class="bar-name">2 hrs/day</span><span class="bar-val">~KES 30,000</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
                     </div>
                     <div class="bar-row">
-                        <div class="bar-info"><span class="bar-name">4 hrs/day</span><span class="bar-val">~KES
-                                55,000</span></div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width:55%"></div>
-                        </div>
+                        <div class="bar-info"><span class="bar-name">4 hrs/day</span><span class="bar-val">~KES 55,000</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
                     </div>
                     <div class="bar-row">
-                        <div class="bar-info"><span class="bar-name">6 hrs/day</span><span class="bar-val">~KES
-                                80,000</span></div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width:80%"></div>
-                        </div>
+                        <div class="bar-info"><span class="bar-name">6 hrs/day</span><span class="bar-val">~KES 80,000</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
                     </div>
                     <div class="bar-row">
-                        <div class="bar-info"><span class="bar-name">8 hrs/day</span><span class="bar-val">~KES
-                                100,000+</span></div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width:100%"></div>
-                        </div>
+                        <div class="bar-info"><span class="bar-name">8 hrs/day</span><span class="bar-val">~KES 100,000+</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
                     </div>
-                    <p style="font-size:11px;color:var(--text-dim);margin-top:20px;line-height:1.6;">Estimates based on
-                        typical task completion rates. Actual earnings depend on task availability and quality of work.
-                    </p>
+                    <p style="font-size:11px;color:var(--text-dim);margin-top:20px;line-height:1.6;">Estimates based on typical task completion rates. Actual earnings depend on task availability and quality of work.</p>
                 </div>
             </div>
         </div>
@@ -1084,20 +531,17 @@
                 <div class="trust-card">
                     <div class="trust-icon">🏢</div>
                     <h4>Meta Contractor Network</h4>
-                    <p>We work directly with a verified Meta AI contractor who sources data labelers and model testers
-                        across East Africa.</p>
+                    <p>We work directly with a verified Meta AI contractor who sources data labelers and model testers across East Africa.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">📱</div>
                     <h4>Work From Your Phone</h4>
-                    <p>No laptop required. All tasks are mobile-friendly. If you can use WhatsApp, you can do this work.
-                    </p>
+                    <p>No laptop required. All tasks are mobile-friendly. If you can use WhatsApp, you can do this work.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">🇰🇪</div>
                     <h4>Kenya-First Operation</h4>
-                    <p>We are a Kenyan team. Payments, support, and communication all happen via M-Pesa and WhatsApp —
-                        tools you already use.</p>
+                    <p>We are a Kenyan team. Payments, support, and communication all happen via M-Pesa and WhatsApp — tools you already use.</p>
                 </div>
             </div>
         </div>
@@ -1110,36 +554,28 @@
             <h2 class="section-title" style="margin-bottom:40px;">Common Questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-q" onclick="toggleFaq(this)">Why do I need to pay KES 500? <span
-                            class="arrow">+</span></button>
-                    <div class="faq-a">The KES 500 covers your registration and the time we spend vetting and personally
-                        connecting you to the contractor. It's a one-time fee — once you're in, you're in for good.
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)">Why is there an onboarding fee? <span class="arrow">+</span></button>
+                    <div class="faq-a">The KES 500 one-time fee covers your registration processing, background vetting, and the time spent personally introducing you to the Meta contractor. Once you're connected, you're in — no recurring charges. The fee is disclosed fully in our Terms & Conditions before you pay.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-q" onclick="toggleFaq(this)">Do I need any qualifications? <span
-                            class="arrow">+</span></button>
-                    <div class="faq-a">No formal qualifications needed. You need to be fluent in English or Swahili,
-                        have a smartphone, and be willing to follow task instructions carefully. That's it.</div>
+                    <button class="faq-q" onclick="toggleFaq(this)">Do I need any qualifications? <span class="arrow">+</span></button>
+                    <div class="faq-a">No formal qualifications needed. You need to be fluent in English or Swahili, have a smartphone, and be willing to follow task instructions carefully. That's it.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-q" onclick="toggleFaq(this)">How quickly will I be connected after paying? <span
-                            class="arrow">+</span></button>
-                    <div class="faq-a">Within 24 hours of your payment being confirmed. We'll reach out on the WhatsApp
-                        number you provide and introduce you directly to the coordinator.</div>
+                    <button class="faq-q" onclick="toggleFaq(this)">How quickly will I be connected after paying? <span class="arrow">+</span></button>
+                    <div class="faq-a">Within 24 hours of your payment being confirmed. We'll reach out on the WhatsApp number you provided and introduce you directly to the coordinator.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-q" onclick="toggleFaq(this)">What exactly is AI model training? <span
-                            class="arrow">+</span></button>
-                    <div class="faq-a">Tasks include rating AI-generated responses for quality, writing short text
-                        examples for training data, testing how the Llama model handles different questions, and
-                        flagging errors. Simple but important work that AI companies pay well for.</div>
+                    <button class="faq-q" onclick="toggleFaq(this)">What exactly is AI model training? <span class="arrow">+</span></button>
+                    <div class="faq-a">Tasks include rating AI-generated responses for quality, writing short text examples for training data, testing how the Llama model handles different questions, and flagging errors. Simple but important work that AI companies pay well for.</div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-q" onclick="toggleFaq(this)">How are earnings paid out? <span
-                            class="arrow">+</span></button>
-                    <div class="faq-a">Payouts are handled monthly by the contractor platform, directly to your M-Pesa
-                        or bank account. AI Jobs Kenya does not hold your earnings.</div>
+                    <button class="faq-q" onclick="toggleFaq(this)">How are earnings paid out? <span class="arrow">+</span></button>
+                    <div class="faq-a">Payouts are handled monthly by the contractor platform, directly to your M-Pesa or bank account. AI Jobs Kenya does not hold your earnings.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">What is your refund policy? <span class="arrow">+</span></button>
+                    <div class="faq-a">If we fail to connect you to the contractor within 48 hours of confirmed payment, you are entitled to a full refund via M-Pesa. Once the contractor introduction is made, the fee is non-refundable. Full details are in our Terms & Conditions.</div>
                 </div>
             </div>
         </div>
@@ -1149,19 +585,85 @@
     <div class="footer-cta">
         <h2>Ready to Start Earning?</h2>
         <p>Join Kenyans already getting paid to shape the future of AI.</p>
-        <button class="btn btn-primary" onclick="scrollToPay()">Get Started — KES 500 Only</button>
+        <button class="btn btn-primary" onclick="scrollToPay()">Apply Now — Free to Register</button>
     </div>
 
     <footer>
         <div>© 2025 AI Jobs Kenya. All rights reserved.</div>
         <div style="display:flex;gap:24px;">
-            <a href="#">Terms</a>
+            <a href="#" onclick="openTerms(); return false;">Terms & Conditions</a>
             <a href="#">Privacy</a>
             <a href="https://wa.me/254725885304" target="_blank">WhatsApp Support</a>
         </div>
     </footer>
 
     <div class="toast" id="toast"></div>
+
+    <!-- ═══════════════════ TERMS MODAL ═══════════════════ -->
+    <div class="modal-overlay" id="terms-modal">
+        <div class="modal">
+            <button class="modal-x" onclick="closeTerms()">✕</button>
+            <h2>Terms & Conditions</h2>
+            <div class="modal-date">AI Jobs Kenya · Effective Date: 1 July 2025 · Version 1.0</div>
+
+            <h3>1. Who We Are</h3>
+            <p>AI Jobs Kenya ("we", "us", "our") is a Kenyan-based talent intermediary that connects individuals with third-party AI data annotation and model training contractors. We are not Meta Platforms Inc. nor an official Meta partner — we are an independent recruiter operating in the AI training labour market.</p>
+
+            <h3>2. Nature of the Opportunity</h3>
+            <p>The work we connect you with involves AI data labelling, response rating, and model testing tasks offered by third-party contractors. Earnings are <strong>estimates only</strong> and are not guaranteed. Actual earnings depend on task availability, your work quality, and contractor demand at the time of onboarding.</p>
+            <ul>
+                <li>Part-time estimate (2–4 hrs/day): KES 20,000 – 55,000/month</li>
+                <li>Full-time estimate (6–8 hrs/day): KES 60,000 – 100,000/month</li>
+                <li>These figures are not income guarantees or promises of employment.</li>
+            </ul>
+
+            <h3>3. Onboarding Fee</h3>
+            <p>A one-time, non-refundable registration and onboarding fee of <strong>KES 500</strong> is charged to cover:</p>
+            <ul>
+                <li>Registration and identity verification processing</li>
+                <li>Direct personal introduction to the contractor coordinator</li>
+                <li>WhatsApp onboarding support</li>
+            </ul>
+            <p>This fee is disclosed before payment is requested and must be agreed to explicitly via the Terms checkbox in the application form.</p>
+
+            <h3>4. Refund Policy</h3>
+            <ul>
+                <li><strong>Full refund:</strong> If we fail to make contractor contact with you within 48 hours of your confirmed M-Pesa payment, you are entitled to a full refund.</li>
+                <li><strong>No refund:</strong> Once the contractor introduction has been made, the onboarding fee is non-refundable, regardless of whether you complete any tasks or earn any income.</li>
+                <li>Refund requests must be made via WhatsApp to <strong>0725 885 304</strong> within 7 days of payment.</li>
+            </ul>
+
+            <h3>5. Your Obligations</h3>
+            <ul>
+                <li>You must be at least 18 years old and legally eligible to work in Kenya.</li>
+                <li>You must provide accurate personal information during registration.</li>
+                <li>You must complete tasks to the quality standard required by the contractor.</li>
+                <li>You must not share your contractor platform access with third parties.</li>
+            </ul>
+
+            <h3>6. No Employment Relationship</h3>
+            <p>Registering with AI Jobs Kenya does not create an employment contract between you and AI Jobs Kenya. You will operate as an independent contractor or freelancer under the terms of the third-party contractor platform. AI Jobs Kenya is solely a connection intermediary.</p>
+
+            <h3>7. Earnings & Payments</h3>
+            <p>All earnings are paid directly by the contractor platform to your M-Pesa or bank account. AI Jobs Kenya does not handle, hold, or process your task earnings. Any payment disputes regarding task earnings must be raised directly with the contractor.</p>
+
+            <h3>8. Privacy</h3>
+            <p>Your personal details (name, WhatsApp number, county) are collected solely for the purpose of matching you with the contractor and providing support. We do not sell your data to third parties. Your information may be shared with the contractor for onboarding purposes only.</p>
+
+            <h3>9. Limitation of Liability</h3>
+            <p>AI Jobs Kenya is not liable for: loss of income due to task unavailability; contractor platform changes or shutdowns; any indirect, consequential, or incidental loss. Our total liability to you shall not exceed the KES 500 onboarding fee paid.</p>
+
+            <h3>10. Governing Law</h3>
+            <p>These Terms are governed by the laws of the Republic of Kenya. Any disputes shall be subject to the jurisdiction of Kenyan courts.</p>
+
+            <h3>11. Contact</h3>
+            <p>For all enquiries: WhatsApp <strong>0725 885 304</strong> or visit our website.</p>
+
+            <div class="modal-close">
+                <button class="modal-close-btn" onclick="closeTerms()">I HAVE READ THE TERMS — CLOSE</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         const MPESA_NUMBER = "0725885304";
@@ -1187,45 +689,90 @@
             toastTimer = setTimeout(() => t.style.display = 'none', 3000);
         }
 
-        function nextStep(n) {
-            if (n === 3) {
-                const code = document.getElementById('mpesa-code').value.trim();
-                const wa = document.getElementById('wa-number').value.trim();
-                if (!code) return showToast('Please enter your M-Pesa transaction code');
-                if (!wa || wa.length < 10) return showToast('Please enter a valid WhatsApp number');
+        function updateDots(n) {
+            for (let i = 1; i <= 4; i++) {
+                const dot = document.getElementById('dot-' + i);
+                if (dot) dot.classList.toggle('active', i <= n);
             }
-            [1, 2, 3].forEach(i => {
+        }
+
+        function nextStep(n) {
+            // Validate step 1
+            if (n === 2) {
+                const name = document.getElementById('full-name').value.trim();
+                const wa = document.getElementById('wa-number').value.trim();
+                const county = document.getElementById('county').value;
+                if (!name) return showToast('Please enter your full name');
+                if (!wa || wa.length < 10) return showToast('Please enter a valid WhatsApp number');
+                if (!county) return showToast('Please select your county');
+            }
+            // Validate step 2
+            if (n === 3) {
+                const hours = document.getElementById('hours').value;
+                const lang = document.getElementById('language').value;
+                if (!hours) return showToast('Please select your available hours');
+                if (!lang) return showToast('Please select your preferred language');
+            }
+            // Validate step 3 (terms)
+            if (n === 4) {
+                const terms = document.getElementById('terms-check').checked;
+                const age = document.getElementById('age-check').checked;
+                if (!terms) return showToast('Please read and agree to the Terms & Conditions');
+                if (!age) return showToast('Please confirm you are 18 or older');
+            }
+
+            [1, 2, 3, 4].forEach(i => {
                 const el = document.getElementById('step-' + i);
                 if (el) el.style.display = i === n ? 'block' : 'none';
             });
+            updateDots(n);
+            document.getElementById('pay-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         function sendWhatsApp() {
             const code = document.getElementById('mpesa-code').value.trim();
+            const name = document.getElementById('full-name').value.trim();
             const wa = document.getElementById('wa-number').value.trim();
+            const county = document.getElementById('county').value;
+            const hours = document.getElementById('hours').value;
+            if (!code) return showToast('Please enter your M-Pesa transaction code');
             const msg =
                 '*AI JOBS KENYA — ONBOARDING PAYMENT*\n\n' +
-                'Amount Paid: KES 500\n' +
+                'Name: ' + name + '\n' +
+                'WhatsApp: ' + wa + '\n' +
+                'County: ' + county + '\n' +
+                'Hours/Day: ' + hours + '\n' +
                 'M-Pesa Code: ' + code + '\n' +
-                'My WhatsApp: ' + wa + '\n' +
-                'Pochi Number: ' + MPESA_DISPLAY + '\n\n' +
-                'Please confirm my payment and connect me to the AI training jobs.';
+                'Amount Paid: KES 500\n' +
+                'Paid To: ' + MPESA_DISPLAY + '\n\n' +
+                'Terms & Conditions: Agreed ✓\n' +
+                'Age 18+: Confirmed ✓\n\n' +
+                'Please confirm my payment and connect me to the AI training coordinator.';
             window.open('https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(msg));
         }
 
         function toggleFaq(btn) {
             const answer = btn.nextElementSibling;
             const isOpen = answer.classList.contains('open');
-            // Close all
             document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
             document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
-            // Open clicked if it was closed
-            if (!isOpen) {
-                answer.classList.add('open');
-                btn.classList.add('open');
-            }
+            if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
         }
+
+        function openTerms() {
+            document.getElementById('terms-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTerms() {
+            document.getElementById('terms-modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('terms-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeTerms();
+        });
     </script>
 </body>
-
 </html>
